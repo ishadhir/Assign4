@@ -28,22 +28,14 @@ with tabs[2]:
 
 #Tab 4: 
 with tabs[3]:
-    st.subheader(f"Something New")
-    st.bar_chart(df['Volume'])
-# 1. Set up the Streamlit page title
-    st.title("Simple Circle Drawer")
+    st.subheader(f"💡 Microsoft Investment Simulator")
+    # 1. User inputs
+        investment_amount = st.number_input("Enter investment amount ($):", min_value=10, value=100, step=10)
+    # 2. Get the most recent closing price from your existing DataFrame (df)
+        latest_price = df['Close'].iloc[-1]
+    # 3. Simple calculation
+        shares_bought = investment_amount / latest_price
+    # 4. Display results cleanly
+        st.metric(label="Latest MSFT Price", value=f"${latest_price:,.2f}")
+        st.success(f"With **${investment_amount:,.2f}**, you could purchase **{shares_bought:.4f}** shares of MSFT.")
 
-# 2. Create a figure and axis
-    fig, ax = plt.subplots()
-
-# 3. Draw a circle at center (0,0) with radius 1
-    circle = plt.Circle((0, 0), radius=1, fill=False, color='blue', linewidth=2)
-    ax.add_patch(circle)
-    
-# 4. Set equal scaling and limits so the circle doesn't look like an oval
-    ax.set_aspect('equal', adjustable='box')
-    ax.set_xlim(-1.5, 1.5)
-    ax.set_ylim(-1.5, 1.5)
-
-# 5. Display the plot in the Streamlit app
-    st.pyplot(fig)
