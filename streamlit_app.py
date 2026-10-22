@@ -29,13 +29,11 @@ with tabs[2]:
 #Tab 4: 
 with tabs[3]:
     st.subheader(f"💡 Microsoft Investment Simulator")
-    # 1. User inputs
-        investment_amount = st.number_input("Enter investment amount ($):", min_value=10, value=100, step=10)
-    # 2. Get the most recent closing price from your existing DataFrame (df)
-        latest_price = df['Close'].iloc[-1]
-    # 3. Simple calculation
-        shares_bought = investment_amount / latest_price
-    # 4. Display results cleanly
-        st.metric(label="Latest MSFT Price", value=f"${latest_price:,.2f}")
-        st.success(f"With **${investment_amount:,.2f}**, you could purchase **{shares_bought:.4f}** shares of MSFT.")
-
+    st.markdown(
+        ""
+        <svg width="200" height="200">
+        <circle cx="100" cy="100" r="80" strock = "red" stroke-width='4' fill="blue" />
+    </svg>
+    "",
+    unsafe_allow_html=True
+)
