@@ -28,12 +28,11 @@ with tabs[2]:
 
 #Tab 4: 
 with tabs[3]:
-    st.subheader(f"Something New")
-    st.markdown(
-        ""
-        <svg width="200" height="200">
-            <circle cx="100" cy="100" r="80" strock = "red" stroke-width='4' fill="blue" />
-        </svg>
-        ''',
-        unsafe_allow_html=True
+    st.subheader("Interactive Moving Average")
+    window = st.slider("Select Moving Average Window (Days)", min_value=5, max_value=50, value=20)
+    
+    df_ma = df.copy()
+    df_ma[f'{window}-Day MA'] = df_ma['Close'].rolling(window=window).mean()
+    
+    st.line_chart(df_ma[['Close', f'{window}-Day MA']])
     )
