@@ -30,9 +30,8 @@ with tabs[2]:
 with tabs[3]:
     st.subheader("Interactive Moving Average")
     window = st.slider("Select Moving Average Window (Days)", min_value=5, max_value=50, value=20)
-    
+
     df_ma = df.copy()
     df_ma[f'{window}-Day MA'] = df_ma['Close'].rolling(window=window).mean()
-    
+
     st.line_chart(df_ma[['Close', f'{window}-Day MA']])
-    )
