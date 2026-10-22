@@ -34,6 +34,6 @@ with tabs[3]:
         <svg width="200" height="200">
             <circle cx="100" cy="100" r="80" strock = "red" stroke-width='4' fill="blue" />
         </svg>
-        "",
+        ''',
         unsafe_allow_html=True
     )
