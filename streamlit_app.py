@@ -30,3 +30,20 @@ with tabs[2]:
 with tabs[3]:
     st.subheader(f"Something New")
     st.bar_chart(df['Volume'])
+# 1. Set up the Streamlit page title
+    st.title("Simple Circle Drawer")
+
+# 2. Create a figure and axis
+    fig, ax = plt.subplots()
+
+# 3. Draw a circle at center (0,0) with radius 1
+    circle = plt.Circle((0, 0), radius=1, fill=False, color='blue', linewidth=2)
+    ax.add_patch(circle)
+    
+# 4. Set equal scaling and limits so the circle doesn't look like an oval
+    ax.set_aspect('equal', adjustable='box')
+    ax.set_xlim(-1.5, 1.5)
+    ax.set_ylim(-1.5, 1.5)
+
+# 5. Display the plot in the Streamlit app
+    st.pyplot(fig)
